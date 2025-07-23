@@ -9,10 +9,14 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -25,7 +29,7 @@ SECRET_KEY = 'django-insecure-0=8_o_#t%o4%)ubd%x)jh##9g#govwug@rjg+y)0zjrz)29g^7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['Farouqtaiwo.pythonanywhere.com']
 
 
 # Application definition
