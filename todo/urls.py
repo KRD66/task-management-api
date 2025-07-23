@@ -1,17 +1,9 @@
-from rest_framework import routers
-from .views import TaskViewSet, RegisterView
-from django.urls import path
+from django.urls import path, include
+from . import views
+from .router import urlpatterns as router_urls
 
-
-router = routers.DefaultRouter()
-router.register('tasks', TaskViewSet, basename='tasks')
-
-urlpatterns = router.urls + [
-      
-
-path('register/', RegisterView.as_view(), name='register'),         
-
+urlpatterns = [
+    path('', views.api_root),
+    path('', include(router_urls)), 
+    path('api/', include(router_urls)),  
 ]
-
-          
-      
